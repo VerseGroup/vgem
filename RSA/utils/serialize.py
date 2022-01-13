@@ -12,8 +12,7 @@ def serialize_private_key(private_key):
         encoding=serialization.Encoding.PEM,
         format=serialization.PrivateFormat.PKCS8,
         encryption_algorithm=serialization.NoEncryption()
-        )
-    
+        ) 
     return serialized_private_key
 
 def serialize_public_key(public_key):
@@ -21,5 +20,4 @@ def serialize_public_key(public_key):
         encoding=serialization.Encoding.PEM,
         format=serialization.PublicFormat.SubjectPublicKeyInfo
         )
-
     return serialized_public_key

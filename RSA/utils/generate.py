@@ -9,7 +9,6 @@ def generate_private():
         key_size=2048,
         backend=default_backend()
     )
-    
     return private_key
 
 def generate_public(private_key):

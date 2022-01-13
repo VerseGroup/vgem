@@ -11,5 +11,4 @@ def decrypt_private(encrypted_message, private_key):
             label=None
         )
     )
-
     return decrypted_message
