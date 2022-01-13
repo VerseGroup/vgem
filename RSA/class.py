@@ -53,3 +53,13 @@ class EM():
             return serialize_public_key(self.public_key)
         else:
             return None
+
+    def encrypt_rsa(self, message):
+        if self.private_key is not None:
+            return encrypt_private(message, self.private_key)
+        elif self.public_key is not None:
+            return encrypt_public(message, self.public_key)
+
+    def decrypt_rsa(self, message):
+        if self.private_key is not None:
+            return decrypt_private(message, self.private_key)
