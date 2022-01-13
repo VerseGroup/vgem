@@ -54,12 +54,22 @@ class EM():
         else:
             return None
 
-    def encrypt_rsa(self, message):
-        if self.private_key is not None:
-            return encrypt_private(message, self.private_key)
-        elif self.public_key is not None:
-            return encrypt_public(message, self.public_key)
+    def encrypt_rsa(self, message, base64):
 
-    def decrypt_rsa(self, message):
+        if self.private_key is not None:
+            encrypted_message = encrypt_private(message, self.private_key)
+        elif self.public_key is not None:
+            encrypted_message = encrypt_public(message, self.public_key)
+
+        if base64 == True:
+            encrypted_message = encode(encrypted_message)
+
+        return encrypted_message
+
+    def decrypt_rsa(self, message, base64):
+
+        if base64 == True:
+            message = decode(message)
+
         if self.private_key is not None:
             return decrypt_private(message, self.private_key)
