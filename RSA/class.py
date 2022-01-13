@@ -42,4 +42,14 @@ class EM():
             self.public_key = deserialize_public_key(serialized_public_key)
             self.private_key = None
 
-        
+    def serialize_private_key(self):
+        if self.private_key is not None:
+            return serialize_private_key(self.private_key)
+        else:
+            return None
+
+    def serialize_public_key(self):
+        if self.public_key is not None:
+            return serialize_public_key(self.public_key)
+        else:
+            return None
