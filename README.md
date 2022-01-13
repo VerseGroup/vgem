@@ -22,7 +22,7 @@ class EncryptionManager
 - encrypt/decrypt using self's keys
 
 ### Construction
-- Initialize using either preexisting keys in any format
+- Initialize using either preexisting keys in any format or generate a new  set of keys
 
 ## To Add
 - Modern architecture also uses SHA to sign AES encrypted messages, as RSA has size limitations. Instead RSA is used to send over an AES symmetric key for a singular session, and then further message's are sent with the AES key and signed in SHA by the RSA private key. 
