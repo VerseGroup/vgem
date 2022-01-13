@@ -27,17 +27,19 @@ class EM():
             self.private_key = private_key
             self.public_key = generate_public(private_key)
 
-        # case public key
-        elif public_key is not None:
-            self.public_key = public_key
-            self.private_key = None
-
         # case serialized private
         elif serialized_private_key is not None:
             self.private_key = deserialize_private_key(serialized_private_key)
             self.public_key = generate_public(self.private_key)
 
+        # case public key
+        elif public_key is not None:
+            self.public_key = public_key
+            self.private_key = None
+
         # case serialized public
         elif serialized_public_key is not None:
             self.public_key = deserialize_public_key(serialized_public_key)
             self.private_key = None
+
+        
