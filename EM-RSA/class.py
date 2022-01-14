@@ -88,4 +88,11 @@ class EM():
     def load_aes_session(self, aes_key, aes_iv):
         self.aes_cipher = load_cipher(aes_key, aes_iv)
 
-    
+    def encrypt_aes(self, message):
+        ct = encrypt_aes(self.aes_cipher, message)
+        return ct
+
+    def decrypt_aes(self, ct):
+        message = decrypt_aes(self.aes_cipher, ct)
+        return message
+
