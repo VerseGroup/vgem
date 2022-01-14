@@ -2,6 +2,7 @@
 from json import load
 import os
 import sys
+from src.utils import deserialize
 
 # adding dir to sys to allow local importing
 currentdir = os.path.abspath(os.path.dirname(__file__))
@@ -13,7 +14,8 @@ from utils import (encode, decode, decrypt_private, encrypt_private,
                     encrypt_public, serialize_private_key, 
                     serialize_public_key, deserialize_private_key, 
                     deserialize_public_key, generate_private, generate_public,
-                    encrypt_aes, decrypt_aes, generate_cipher_aes, load_cipher)
+                    encrypt_aes, decrypt_aes, generate_cipher_aes, load_cipher, 
+                    serialize_aes, deserialize_aes)
 
 class EM():
 
@@ -110,3 +112,26 @@ class EM():
             message = None
         return message
 
+    def serialize_aes(self, base64):
+        
+        if self.private_key is not None:
+            serialized_aes = serialize_aes(self.aes_cipher, True, self.private_key)
+        elif self.public_key is not None:
+            serialized_aes = serialize_aes(self.aes_cipher, True, self.public_key)
+
+        if base64 == True:
+            serialized_aes = encode(serialized_aes)
+
+        return serialized_aes
+
+    def deserialize_aes(self, aes, base64):
+
+        if base64 == True:
+            aes = decode(aes)
+
+        if self.private_key is not None:
+            aes = deserialize_aes(aes, True, self.private_key)
+        
+        self.aes_cipher = aes
+
+        return aes 

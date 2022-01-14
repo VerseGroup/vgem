@@ -2,8 +2,6 @@
 import os
 import sys
 
-from src.utils.aes.serialize_aes import serialize_aes
-
 # adding dir to sys to allow local importing
 currentdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(currentdir)
