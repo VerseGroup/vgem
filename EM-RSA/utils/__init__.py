@@ -15,4 +15,4 @@ from deserialize import deserialize_private_key, deserialize_public_key
 from generate import generate_private, generate_public
 
 # importing from aes
-from aes import generate_cipher_aes, encrypt_aes, decrypt_aes
+from aes import generate_cipher_aes, encrypt_aes, decrypt_aes, load_cipher

@@ -16,7 +16,7 @@ from utils import (encode, decode, decrypt_private, encrypt_private,
 
 class EM():
 
-    def __init__(self, private_key=None, public_key=None, serialized_private_key=None, serialized_public_key=None):
+    def __init__(self, private_key=None, public_key=None, serialized_private_key=None, serialized_public_key=None, aes_key=None, aes_iv=None):
 
         # case new keys
         if private_key is None and public_key is None and serialized_private_key is None and serialize_public_key is None:
@@ -75,5 +75,7 @@ class EM():
         if self.private_key is not None:
             return decrypt_private(message, self.private_key)
 
-    def aes_session(self):
+    def start_aes_session(self):
         self.aes_cipher = generate_cipher_aes()
+
+

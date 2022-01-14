@@ -10,3 +10,4 @@ sys.path.append(currentdir)
 from generate import generate_cipher_aes
 from encrypt import encrypt_aes
 from decrypt import decrypt_aes
+from load import load_cipher
