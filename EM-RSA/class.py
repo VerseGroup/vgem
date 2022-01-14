@@ -1,4 +1,5 @@
 # python imports
+from json import load
 import os
 import sys
 
@@ -12,7 +13,7 @@ from utils import (encode, decode, decrypt_private, encrypt_private,
                     encrypt_public, serialize_private_key, 
                     serialize_public_key, deserialize_private_key, 
                     deserialize_public_key, generate_private, generate_public,
-                    encrypt_aes, decrypt_aes, generate_cipher_aes)
+                    encrypt_aes, decrypt_aes, generate_cipher_aes, load_cipher)
 
 class EM():
 
@@ -42,6 +43,12 @@ class EM():
         elif serialized_public_key is not None:
             self.public_key = deserialize_public_key(serialized_public_key)
             self.private_key = None
+
+        # loading aes if applicable, otherwise generating a base session
+        if aes_key is not None and aes_iv is not None:
+            self.aes_cipher = load_cipher(aes_key, aes_iv)
+        else:
+            self.aes_cipher = generate_cipher_aes()
 
     def serialize_private_key(self):
         if self.private_key is not None:
