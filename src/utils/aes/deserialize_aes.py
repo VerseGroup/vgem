@@ -2,6 +2,8 @@
 import os
 import sys
 
+from src.utils.aes.serialize_aes import serialize_aes
+
 # adding dir to sys to allow local importing
 currentdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(currentdir)
@@ -12,19 +14,26 @@ sys.path.append(parentdir)
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
 # local imports
-from encrypt import encrypt_private, encrypt_public
+from decrypt import decrypt_private
 
-def serialize_aes(cipher, public_key=None, private_key=None):
+def deserialize_aes(serialized_aes, decrypt, private_key=None):
+
+    if decrypt == True:
+        if private_key is not None:
+            serialized_aes = decrypt_private(serialized_aes, private_key)
+        else: 
+            raise ValueError('DECRYPT SET TO TRUE BUT NO KEY PASSED')
+
+    '''
+
     key = cipher.algorithm.key
     iv = cipher.mode._initialization_vector
 
     serialized_aes_object = f"START_KEY:{key}END_KEYSTART_IV:{iv}END_IV"
-
-    if public_key is not None:
-        serialized_aes_object = encrypt_public(serialized_aes_object, public_key)
-    elif private_key is not None:
-        serialized_aes_object = encrypt_private(serialized_aes_object, private_key)
-    else:
-        raise ValueError('NO KEY PASSED')
+            
 
     return serialized_aes_object
+
+    '''
+
+ 
