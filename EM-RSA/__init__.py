@@ -1,5 +1,4 @@
 # python imports
-from curses.ascii import EM
 import os
 import sys
 

@@ -2,27 +2,42 @@
 VerseGroup's native encryption manager adapted for python applications.
 
 ## Function
-- Generate new set of private and public keys
-- Encrypt using private and public keys
-- Decrypt using private keys
-- Encode in base64 for networking with encrypted messages 
+EM is an efficient manager to allow for easy encryption/decryption/secure session management, without having to code for specific algorithims, as
+long as the client/reciever uses this same package (or alternative language equivalent)
 
-## Implementation
-- VerseGroup's Encryption Manager uses an object oriented approach, so encryption will take place through methods and attribute within a class
+EM prefers the OOP approach, in order to reduce the amount of key passing and similar tedious tasks
+
+## RSA and AES explained
 
 ## Documentation
-class EncryptionManager
+class EM
+utils (all EM functions, disorganized)
 
 ### Attributes
-- private key
-- public key
-
-### Methods
-- serialize and deserialize private and public keys
-- encrypt/decrypt using self's keys
+- RSA private key
+- RSA public key
+- AES cipher object (consists of key and iv)
 
 ### Construction
-- Initialize using either preexisting keys in any format or generate a new  set of keys
+- Optional Paramaters:
+    - RSA private key
+    - RSA public key
+    - Serialized RSA private key
+    - Serialized RSA public key
+    - AES cipher key
+    - AES cipher iv
+- EM will construct anything else essential and not passed in
 
-## To Add
-- Modern architecture also uses SHA to sign AES encrypted messages, as RSA has size limitations. Instead RSA is used to send over an AES symmetric key for a singular session, and then further message's are sent with the AES key and signed in SHA by the RSA private key. 
+### Methods
+- Serialize private/public RSA keys
+- Encrypt/Decrypt using RSA keys
+- Start AES session
+- Encrypt/Decrypt using AES session
+
+## To Implement
+- Serializing AES (picke?, encode keys?), with RSA keys
+
+
+
+
+
