@@ -91,11 +91,19 @@ class EM():
     def load_aes_session(self, aes_key, aes_iv):
         self.aes_cipher = load_cipher(aes_key, aes_iv)
 
-    def encrypt_aes(self, message):
+    def encrypt_aes(self, message, base64):
         ct = encrypt_aes(self.aes_cipher, message)
+
+        if base64 == True:
+            ct = encode(ct)
+
         return ct
 
-    def decrypt_aes(self, ct):
+    def decrypt_aes(self, ct, base64):
+
+        if base64 == True:
+            ct = decode(ct)
+
         try:
             message = decrypt_aes(self.aes_cipher, ct)
         except:
