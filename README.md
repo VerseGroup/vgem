@@ -33,10 +33,8 @@ utils (all EM functions, disorganized)
 - Encrypt/Decrypt using RSA keys
 - Start AES session
 - Encrypt/Decrypt using AES session
-- Base64 encoding prefered as CT is typicall binary
-
-## To Implement
-- Serializing AES (pickle?, encode keys?), with RSA keys
+- Serialize/Deserialize RSA encrypted AES keys
+- Base64 encoding prefered as cipher is typically binary
 
 
 
