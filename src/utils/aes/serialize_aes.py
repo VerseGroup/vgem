@@ -18,7 +18,7 @@ def serialize_aes(cipher, encrypt, public_key=None, private_key=None):
     key = cipher.algorithm.key
     iv = cipher.mode._initialization_vector
 
-    serialized_aes_object = f"START_KEY:{key}END_KEYSTART_IV:{iv}END_IV"
+    serialized_aes_object = f"{key}PARTITION{iv}"
     
     if encrypt == True:
         if public_key is not None:

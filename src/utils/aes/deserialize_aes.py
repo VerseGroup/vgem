@@ -15,6 +15,7 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
 # local imports
 from decrypt import decrypt_private
+from load_aes import load_cipher
 
 def deserialize_aes(serialized_aes, decrypt, private_key=None):
 
@@ -24,16 +25,12 @@ def deserialize_aes(serialized_aes, decrypt, private_key=None):
         else: 
             raise ValueError('DECRYPT SET TO TRUE BUT NO KEY PASSED')
 
-    '''
+    serialized_aes = serialized_aes.split("PARTITION")
+    key = serialized_aes[0]
+    iv = serialized_aes[1]
 
-    key = cipher.algorithm.key
-    iv = cipher.mode._initialization_vector
+    cipher = load_cipher(key, iv)
 
-    serialized_aes_object = f"START_KEY:{key}END_KEYSTART_IV:{iv}END_IV"
-            
-
-    return serialized_aes_object
-
-    '''
+    return cipher
 
  
