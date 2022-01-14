@@ -11,7 +11,8 @@ sys.path.append(currentdir)
 from utils import (encode, decode, decrypt_private, encrypt_private, 
                     encrypt_public, serialize_private_key, 
                     serialize_public_key, deserialize_private_key, 
-                    deserialize_public_key, generate_private, generate_public)
+                    deserialize_public_key, generate_private, generate_public,
+                    encrypt_aes, decrypt_aes, generate_cipher_aes)
 
 class EM():
 
@@ -73,3 +74,6 @@ class EM():
 
         if self.private_key is not None:
             return decrypt_private(message, self.private_key)
+
+    def aes_session(self):
+        self.aes_cipher = generate_cipher_aes()

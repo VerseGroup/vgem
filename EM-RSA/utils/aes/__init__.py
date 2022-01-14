@@ -7,6 +7,6 @@ currentdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(currentdir)
 
 # local imports for shorter routes
-from generate import generate_cipher
+from generate import generate_cipher_aes
 from encrypt import encrypt_aes
 from decrypt import decrypt_aes
