@@ -80,7 +80,10 @@ class EM():
             message = decode(message)
 
         if self.private_key is not None:
-            return decrypt_private(message, self.private_key)
+            try:
+                return decrypt_private(message, self.private_key)
+            except:
+                return None
 
     def new_aes_session(self):
         self.aes_cipher = generate_cipher_aes()
@@ -93,6 +96,9 @@ class EM():
         return ct
 
     def decrypt_aes(self, ct):
-        message = decrypt_aes(self.aes_cipher, ct)
+        try:
+            message = decrypt_aes(self.aes_cipher, ct)
+        except:
+            message = None
         return message
 

@@ -8,4 +8,4 @@ currentdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(currentdir)
 
 # local imports 
-from class_ import EM
+from em import EM
