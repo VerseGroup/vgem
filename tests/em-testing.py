@@ -17,6 +17,7 @@ message = "A very secret message"
 print(message)
 print()
 
+
 message = handler.encrypt_rsa(message, True)
 print(message)
 print()

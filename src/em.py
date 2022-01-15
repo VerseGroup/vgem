@@ -66,9 +66,7 @@ class EM():
 
     def encrypt_rsa(self, message, base64):
 
-        if self.private_key is not None:
-            encrypted_message = encrypt_private(message, self.private_key)
-        elif self.public_key is not None:
+        if self.public_key is not None:
             encrypted_message = encrypt_public(message, self.public_key)
 
         if base64 == True:
