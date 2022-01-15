@@ -1,8 +1,8 @@
-rmdir build
-rmdir dist
+rmdir -rf build
+rmdir -rf dist
 
 cd src
-rmdir vg_em.egg-info
+rmdir -rf vg_em.egg-info
 
 cd ..
 
