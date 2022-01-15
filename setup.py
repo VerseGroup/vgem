@@ -5,7 +5,7 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 VERSION = "1.0.0"
-DESCRIPTION=""
+DESCRIPTION="Verse Groups's Encryption Manager class (RSA and AES sessions through RSA) for secure transmission of data"
 
 setup(
     name="vg-em",
