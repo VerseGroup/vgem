@@ -10,17 +10,15 @@ sys.path.append(parentdir)
 
 # local imports
 from src import EM
-from t_RSA_encryption import test_encryption
-
 handler = EM()
 
-private_key = handler.serialize_private_key()
-print(f"PRIVATEKEY: {private_key}")
-print()
+def test_serialization():
+    message = "SECRET MESSAGE"
+    emessage = handler.encrypt_rsa(message, True)
+    private_key = handler.serialize_private_key()
 
-public_key = handler.serialize_public_key()
-print(f"PUBLICKEY: {public_key}")
-print()
+    handler2 = EM(serialized_private_key=private_key)
+    dmessage = handler2.decrypt_rsa(emessage, True)
 
-handler2 = EM(serialized_private_key=private_key)
-test_encryption(handler2)
+    assert message == dmessage
+  

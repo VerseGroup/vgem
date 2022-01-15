@@ -10,18 +10,22 @@ sys.path.append(parentdir)
 
 # local imports
 from src import EM
-
 handler = EM()
 
-def test_encryption(handler):
+def encrypt(message):
+    emessage = handler.encrypt_rsa(message, True)
+    return emessage
+
+def decrypt(emessage):
+    dmessage = handler.decrypt_rsa(emessage, True)
+    return dmessage
+
+
+def test_encryption():
     message = "A very secret message"
-    print(message)
-    print()
+    
+    emessage = encrypt(message)
+    dmessage = decrypt(emessage)
 
-    message = handler.encrypt_rsa(message, True)
-    print(message)
-    print()
+    assert message == dmessage
 
-    message = handler.decrypt_rsa(message, True)
-    print(message)
-    print()
