@@ -12,7 +12,7 @@ sys.path.append(parentdir)
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
 # local imports
-from encrypt import encrypt_private, encrypt_public
+from encrypt import encrypt_public
 
 def serialize_aes(cipher, encrypt, public_key=None, private_key=None):
     key = cipher.algorithm.key
@@ -23,8 +23,6 @@ def serialize_aes(cipher, encrypt, public_key=None, private_key=None):
     if encrypt == True:
         if public_key is not None:
             serialized_aes_object = encrypt_public(serialized_aes_object, public_key)
-        elif private_key is not None:
-            serialized_aes_object = encrypt_private(serialized_aes_object, private_key)
         else:
             raise ValueError('ENCRYPT SET TO TRUE BUT NO KEY PASSED')
 

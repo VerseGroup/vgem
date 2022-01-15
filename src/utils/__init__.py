@@ -9,7 +9,7 @@ sys.path.append(currentdir)
 # adding local imports to allow shorter imports
 from base64ec import encode, decode
 from decrypt import decrypt_private
-from encrypt import encrypt_private, encrypt_public
+from encrypt import encrypt_public
 from serialize import serialize_private_key, serialize_public_key
 from deserialize import deserialize_private_key, deserialize_public_key
 from generate import generate_private, generate_public
