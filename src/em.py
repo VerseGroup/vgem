@@ -22,7 +22,7 @@ class EM():
     def __init__(self, private_key=None, public_key=None, serialized_private_key=None, serialized_public_key=None, aes_key=None, aes_iv=None):
 
         # case new keys
-        if private_key is None and public_key is None and serialized_private_key is None and serialize_public_key is None:
+        if private_key is None and public_key is None and serialized_private_key is None and serialized_public_key is None:
             self.private_key = generate_private() 
             self.public_key = generate_public(self.private_key)
 

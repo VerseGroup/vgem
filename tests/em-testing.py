@@ -11,3 +11,16 @@ sys.path.append(parentdir)
 # local imports
 from src import EM
 
+handler = EM()
+
+message = "A very secret message"
+print(message)
+print()
+
+message = handler.encrypt_rsa(message, True)
+print(message)
+print()
+
+message = handler.decrypt_rsa(message, True)
+print(message)
+print()
