@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+src/vgem.egg-info/PKG-INFO
+src/vgem.egg-info/SOURCES.txt
+src/vgem.egg-info/dependency_links.txt
+src/vgem.egg-info/requires.txt
+src/vgem.egg-info/top_level.txt

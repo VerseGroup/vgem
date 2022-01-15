@@ -4,11 +4,11 @@ from setuptools import setup
 HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 DESCRIPTION="VerseGroups encryption manager class (RSA and AES sessions through RSA) for secure transmission of data"
 
 setup(
-    name="vg-em",
+    name="vgem",
     version=VERSION,
     description=DESCRIPTION,
     long_description=README,

@@ -1,8 +1,0 @@
-LICENSE
-README.md
-setup.py
-src/vg_em.egg-info/PKG-INFO
-src/vg_em.egg-info/SOURCES.txt
-src/vg_em.egg-info/dependency_links.txt
-src/vg_em.egg-info/requires.txt
-src/vg_em.egg-info/top_level.txt
