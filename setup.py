@@ -1,5 +1,5 @@
 import pathlib
-from setuptools import setup
+from setuptools import setup, find_packages
 
 HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
@@ -34,6 +34,6 @@ setup(
     include_package_data=True,
     python_requires='>=3.6',    
     install_requires=["cryptography", "pycparser", "cffi"],
-    packages=['vgem'],
+    packages=find_packages(exclude=("tests",)),
     keywords=KEYWORDS
 )

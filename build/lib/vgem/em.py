@@ -1,5 +1,4 @@
 # python imports
-from json import load
 import os
 import sys
 
