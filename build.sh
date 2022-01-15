@@ -1,8 +1,8 @@
 rm -rf build
 rm -rf dist
 
-cd src
-rm -rf vg_em.egg-info
+cd vgem
+rm -rf vgem.egg-info
 
 cd ..
 
