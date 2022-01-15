@@ -4,8 +4,8 @@ from setuptools import setup, find_packages
 HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
-VERSION = "1.0.0"
-DESCRIPTION="Verse Groups's Encryption Manager class (RSA and AES sessions through RSA) for secure transmission of data"
+VERSION = "1.0.1"
+DESCRIPTION="VerseGroups encryption manager class (RSA and AES sessions through RSA) for secure transmission of data"
 
 setup(
     name="vg-em",
@@ -33,5 +33,5 @@ setup(
     include_package_data=True,
     python_requires='>=3.6',    
     install_requires=["cryptography", "pycparser", "cffi"],
-    packages=find_packages(exclude=("tests",)),
+    package_dir={'':'src'},
 )

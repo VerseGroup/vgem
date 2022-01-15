@@ -9,7 +9,7 @@ parentdir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pard
 sys.path.append(parentdir)
 
 # local imports
-from vg_em import EM
+from src import EM
 handler = EM()
 
 def encrypt(message):
