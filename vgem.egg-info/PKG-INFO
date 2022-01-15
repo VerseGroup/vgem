@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: vgem
-Version: 1.0.3
+Version: 1.0.4
 Summary: VerseGroups encryption manager class (RSA and AES sessions through RSA) for secure transmission of data
-Home-page: https://github.com/VerseGroup/EM-python
+Home-page: https://github.com/VerseGroup/vgem-python
 Author: VERSEGROUPLLC
 Author-email: officialversegroupllc@gmail.com
 License: MIT

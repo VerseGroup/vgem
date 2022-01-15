@@ -4,8 +4,9 @@ from setuptools import setup
 HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 DESCRIPTION="VerseGroups encryption manager class (RSA and AES sessions through RSA) for secure transmission of data"
+KEYWORDS=['']
 
 setup(
     name="vgem",
@@ -13,7 +14,7 @@ setup(
     description=DESCRIPTION,
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/VerseGroup/EM-python",
+    url="https://github.com/VerseGroup/vgem-python",
     author="VERSEGROUPLLC",
     author_email="officialversegroupllc@gmail.com",
     license="MIT",
@@ -33,5 +34,6 @@ setup(
     include_package_data=True,
     python_requires='>=3.6',    
     install_requires=["cryptography", "pycparser", "cffi"],
-    py_modules=['vgem'],
+    packages=['vgem'],
+    keywords=KEYWORDS
 )
