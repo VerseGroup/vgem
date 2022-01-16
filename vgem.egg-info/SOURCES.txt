@@ -15,10 +15,10 @@ vgem/utils/deserialize.py
 vgem/utils/encrypt.py
 vgem/utils/generate.py
 vgem/utils/serialize.py
-vgem/utils/aes/__init__.py
-vgem/utils/aes/decrypt_aes.py
-vgem/utils/aes/deserialize_aes.py
-vgem/utils/aes/encrypt_aes.py
-vgem/utils/aes/generate_aes.py
-vgem/utils/aes/load_aes.py
-vgem/utils/aes/serialize_aes.py
+vgem/utils/fernet/__init__.py
+vgem/utils/fernet/decrypt_fernet.py
+vgem/utils/fernet/deserialize_fernet.py
+vgem/utils/fernet/encrypt_fernet.py
+vgem/utils/fernet/generate_fernet.py
+vgem/utils/fernet/load_fernet.py
+vgem/utils/fernet/serialize_fernet.py
