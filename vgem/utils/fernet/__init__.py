@@ -11,3 +11,5 @@ from decrypt_fernet import decrypt_fernet
 from encrypt_fernet import encrypt_fernet
 from generate_fernet import generate_fernet_key, generate_fernet_object
 from load_fernet import load_fernet_object
+from serialize_fernet import serialize_fernet
+from deserialize_fernet import deserialize_fernet

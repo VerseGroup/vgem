@@ -1,4 +1,5 @@
 # python imports
+from email.mime import base
 from json import load
 import os
 import sys
@@ -12,7 +13,7 @@ from utils import *
 
 class EM():
 
-    def __init__(self, private_key=None, public_key=None, serialized_private_key=None, serialized_public_key=None, fernet_key=None):
+    def __init__(self, private_key=None, public_key=None, serialized_private_key=None, serialized_public_key=None, fernet_key=None, encrypted_fernet_key=None):
 
         # case new keys
         if private_key is None and public_key is None and serialized_private_key is None and serialized_public_key is None:
@@ -41,9 +42,17 @@ class EM():
 
         # loading fernet key if given
         if fernet_key is not None:
-            self.fernet = load_fernet_object(fernet_key)
+            fernets = load_fernet_object(fernet_key)
+            self.fernet_key = fernets['key']
+            self.fernet = fernets['f']
+      
+        elif encrypted_fernet_key is not None:
+            self.fernet_key = deserialize_fernet(encrypted_fernet_key, self.private_key, True)
+            self.fernet = load_fernet_object(self.fernet_key)['f']
         else:
-            self.fernet = generate_fernet_object()
+            fernets = generate_fernet_object()
+            self.fernet_key = fernets['key']
+            self.fernet = fernets['f']
 
     def serialize_private_key(self):
         if self.private_key is not None:
@@ -107,5 +116,25 @@ class EM():
 
     def load_new_fernet(self, key):
         self.fernet = load_fernet_object(key)
+
+    def serialize_fernet(self, encrypt, base64):
+
+        if encrypt==True:
+            key = serialize_fernet(self.fernet_key, self.public_key, base64)
+        else:
+            key = serialize_fernet(key=self.fernet_key, base64=base64)
+        
+        return key
+        
+    def deserialize_fernet(self, key, decrypt, base64):
+
+        if decrypt == True:
+            key = deserialize_fernet(key, self.private_key, base64)
+        else:
+            key = deserialize_fernet(key, base64=base64)
+        
+        fernet = load_fernet_object(key)
+
+        self.fernet = fernet
 
     

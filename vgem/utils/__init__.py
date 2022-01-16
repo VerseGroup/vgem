@@ -14,5 +14,5 @@ from serialize import serialize_private_key, serialize_public_key
 from deserialize import deserialize_private_key, deserialize_public_key
 from generate import generate_private, generate_public
 
-# importing from aes
-from fernet import decrypt_fernet, load_fernet_object, encrypt_fernet, generate_fernet_object, generate_fernet_key
+# importing from fernet
+from fernet import *
