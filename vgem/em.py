@@ -8,12 +8,7 @@ sys.path.append(currentdir)
 
 # utils import 
 # adding local imports to allow shorter imports
-from utils import (encode, decode, decrypt_private, 
-                    encrypt_public, serialize_private_key, 
-                    serialize_public_key, deserialize_private_key, 
-                    deserialize_public_key, generate_private, generate_public,
-                    encrypt_aes, decrypt_aes, generate_cipher_aes, load_cipher, 
-                    serialize_aes, deserialize_aes)
+from utils import *
 
 class EM():
 
@@ -94,7 +89,7 @@ class EM():
         self.aes_cipher = load_cipher(aes_key, aes_iv)
 
     def encrypt_aes(self, message, base64):
-        ct = encrypt_aes(self.aes_cipher, message)
+        ct = encrypt_aes_(self.aes_cipher, message)
 
         if base64 == True:
             ct = encode(ct)
@@ -107,7 +102,7 @@ class EM():
             ct = decode(ct)
 
         try:
-            message = decrypt_aes(self.aes_cipher, ct)
+            message = decrypt_aes_(self.aes_cipher, ct)
         except:
             message = None
         return message
