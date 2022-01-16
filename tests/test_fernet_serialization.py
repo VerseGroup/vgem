@@ -27,5 +27,3 @@ def test_fernet_serialization():
     dmessage = handler2.decrypt_fernet(emessage, True)
 
     assert message == dmessage
-
-test_fernet_serialization()
