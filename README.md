@@ -28,7 +28,7 @@ from vgem.em import EM
 
 handler = EM()
 
-essage = "A very secret message"
+message = "A very secret message"
 
 encrypted_message = handler.encrypt(message)
 
@@ -43,7 +43,8 @@ assert message == decrypted_message
 
 ## Documentation
 class EM
-utils (all EM functions, disorganized)
+
+utils subdir for alternative approach (OOP prefered instead though)
 
 ### Attributes
 - RSA private key
