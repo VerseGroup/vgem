@@ -1,4 +1,5 @@
 # python imports
+from json import load
 import os
 import sys
 
@@ -7,12 +8,11 @@ currentdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(currentdir)
 
 # utils import 
-# adding local imports to allow shorter imports
 from utils import *
 
 class EM():
 
-    def __init__(self, private_key=None, public_key=None, serialized_private_key=None, serialized_public_key=None, aes_key=None, aes_iv=None):
+    def __init__(self, private_key=None, public_key=None, serialized_private_key=None, serialized_public_key=None, fernet_key=None):
 
         # case new keys
         if private_key is None and public_key is None and serialized_private_key is None and serialized_public_key is None:
@@ -39,11 +39,11 @@ class EM():
             self.public_key = deserialize_public_key(serialized_public_key)
             self.private_key = None
 
-        # loading aes if applicable, otherwise generating a base session
-        if aes_key is not None and aes_iv is not None:
-            self.aes_cipher = load_cipher(aes_key, aes_iv)
+        # loading fernet key if given
+        if fernet_key is not None:
+            self.fernet = load_fernet_object(fernet_key)
         else:
-            self.aes_cipher = generate_cipher_aes()
+            self.fernet = generate_fernet_object()
 
     def serialize_private_key(self):
         if self.private_key is not None:
@@ -82,51 +82,30 @@ class EM():
 
         return message
 
-    def new_aes_session(self):
-        self.aes_cipher = generate_cipher_aes()
+    def encrypt_fernet(self, message, base64):
+        
+        if self.fernet is not None:
+            token = encrypt_fernet(self.fernet, message)
+        
+        if base64 == True:
+            token = encode(token)
 
-    def load_aes_session(self, aes_key, aes_iv):
-        self.aes_cipher = load_cipher(aes_key, aes_iv)
+        return token
 
-    def encrypt_aes(self, message, base64):
-        ct = encrypt_aes_(self.aes_cipher, message)
+    def decrypt_fernet(self, token, base64):
 
         if base64 == True:
-            ct = encode(ct)
+            token = decode(token)
 
-        return ct
+        if self.fernet is not None:
+            try:
+                message = decrypt_fernet(self.fernet, token)
+            except:
+                return None
 
-    def decrypt_aes(self, ct, base64):
-
-        if base64 == True:
-            ct = decode(ct)
-
-        try:
-            message = decrypt_aes_(self.aes_cipher, ct)
-        except:
-            message = None
         return message
 
-    def serialize_aes(self, base64):
-        
-        if self.private_key is not None:
-            serialized_aes = serialize_aes(self.aes_cipher, True, self.private_key)
-        elif self.public_key is not None:
-            serialized_aes = serialize_aes(self.aes_cipher, True, self.public_key)
+    def load_new_fernet(self, key):
+        self.fernet = load_fernet_object(key)
 
-        if base64 == True:
-            serialized_aes = encode(serialized_aes)
-
-        return serialized_aes
-
-    def deserialize_aes(self, aes, base64):
-
-        if base64 == True:
-            aes = decode(aes)
-
-        if self.private_key is not None:
-            aes = deserialize_aes(aes, True, self.private_key)
-        
-        self.aes_cipher = aes
-
-        return aes 
+    

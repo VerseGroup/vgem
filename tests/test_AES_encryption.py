@@ -12,12 +12,14 @@ sys.path.append(parentdir)
 from vgem import EM
 handler = EM()
 
-def test_AES_encryption():
-    message = "A very secret message"
+def test_fernet_encryption():
 
-    emessage = handler.encrypt_aes(message, True)
+    message = "a very secret message"
 
-    dmessage = handler.decrypt_aes(emessage, True)
+    emessage = handler.encrypt_fernet(message, True)
 
-    assert dmessage == message
+    dmessage = handler.decrypt_fernet(emessage, True)
+
+    assert message == dmessage
+
 
