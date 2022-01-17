@@ -23,14 +23,14 @@ pip install vgem
 
 In python:
 ~~~
-from vgem.em import EM
+from vgem import EM
 ~~~
 
 Then you have access to the EM class. 
 
 Example usage of RSA:
 ~~~
-from vgem.em import EM
+from vgem import EM
 
 handler = EM()
 
