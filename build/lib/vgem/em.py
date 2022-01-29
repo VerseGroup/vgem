@@ -54,15 +54,21 @@ class EM():
             self.fernet_key = fernets['key']
             self.fernet = fernets['f']
 
-    def serialize_private_key(self):
+    def serialize_private_key(self, base64=True):
         if self.private_key is not None:
-            return serialize_private_key(self.private_key)
+            key = serialize_private_key(self.private_key)
+            if base64:
+                key = encode(key)
+            return key
         else:
             return None
 
-    def serialize_public_key(self):
+    def serialize_public_key(self, base64=True):
         if self.public_key is not None:
-            return serialize_public_key(self.public_key)
+            key = serialize_public_key(self.public_key)
+            if base64:
+                key = encode(key)
+            return key
         else:
             return None
 
