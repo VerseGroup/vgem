@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: vgem
-Version: 1.1.2
-Summary: VerseGroups encryption manager class (RSA and Fernet wrapped AES sessions through RSA) for secure transmission of data
+Version: 1.2.0
+Summary: VerseGroups encryption manager class (RSA and Fernet wrapped AES sessions through RSA) for secure transmission of data. Also includes utilities such as hashing and base64 encoding.
 Home-page: https://github.com/VerseGroup/vgem-python
 Author: VERSEGROUPLLC
 Author-email: officialversegroupllc@gmail.com
@@ -30,6 +30,8 @@ VerseGroup's native encryption manager adapted for python applications.
 EM is an efficient manager to allow for easy encryption/decryption/secure session management, without having to code for specific algorithims, as long as the client/reciever uses this same package (or alternative language equivalent). 
 
 EM prefers the OOP approach, in order to reduce the amount of key passing and similar tedious tasks. Simply initiate an EM instance empty to generate a new set of keys, or pass in existing keys (serialized or object formatted) to use. Supports mainly RSA assymetric encryption, but also hybrid encryption with RSA generated fernet wrapped AES sessions. 
+
+EM also provides utilities such as hashing and base64 encoding. 
 
 ## RSA and Fernet-AES explained
 

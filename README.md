@@ -6,6 +6,8 @@ EM is an efficient manager to allow for easy encryption/decryption/secure sessio
 
 EM prefers the OOP approach, in order to reduce the amount of key passing and similar tedious tasks. Simply initiate an EM instance empty to generate a new set of keys, or pass in existing keys (serialized or object formatted) to use. Supports mainly RSA assymetric encryption, but also hybrid encryption with RSA generated fernet wrapped AES sessions. 
 
+EM also provides utilities such as hashing and base64 encoding. 
+
 ## RSA and Fernet-AES explained
 
 RSA is assymetric encryption, which uses private and public keys to send encrypted messages. Private keys can decrypt messages and public keys can only encrypt messages. A server wishing to recieve encrypted messages would distribute its public keys freely, and then decrypt incoming messages with its' private key. For two-way encryption, two servers would each send eachother their public keys, and decrypt messages with their private keys. 

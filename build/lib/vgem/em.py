@@ -143,4 +143,20 @@ class EM():
 
         self.fernet = fernet
 
-    
+    def hash(self, message, base64):
+
+        hash = hash_(message)
+
+        if base64 == True:
+            hash = encode(hash)
+
+        return hash
+
+    def check_hash(self, message, hash, base64):
+        if base64 == True:
+            hash = decode(hash)
+
+        return check_hash(message, hash)
+
+
+

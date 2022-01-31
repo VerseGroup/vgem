@@ -14,6 +14,7 @@ vgem/utils/decrypt.py
 vgem/utils/deserialize.py
 vgem/utils/encrypt.py
 vgem/utils/generate.py
+vgem/utils/hash.py
 vgem/utils/serialize.py
 vgem/utils/fernet/__init__.py
 vgem/utils/fernet/decrypt_fernet.py
