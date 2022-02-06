@@ -145,18 +145,22 @@ class EM():
 
     def hash(self, message, base64):
 
-        hash = hash_(message)
+        dict = hash_(message=message)
+        thehash = dict['hash']
+        salt = dict['salt']
 
         if base64 == True:
-            hash = encode(hash)
+            thehash = encode(thehash)
+            salt = encode(salt)
 
-        return hash
+        return {'hash': thehash, 'salt': salt}
 
-    def check_hash(self, message, hash, base64):
+    def check_hash(self, message, hash, salt, base64):
         if base64 == True:
             hash = decode(hash)
+            salt = decode(salt)
 
-        return check_hash(message, hash)
+        return check_hash_(message=message, salt=salt, hash=hash)
 
 
 

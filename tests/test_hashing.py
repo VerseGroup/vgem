@@ -19,5 +19,11 @@ def test_hashing():
 
 def test_hash_check():
     message = "A very secret message"
-    hash = handler.hash(message, True)
-    assert handler.check_hash(message, hash, True)
+    dict = handler.hash(message, True)
+    hash = dict['hash']
+    salt = dict['salt']
+    try: 
+        result = handler.check_hash(message=message, hash=hash, salt=salt, base64=True)
+        assert True
+    except:
+        assert False
