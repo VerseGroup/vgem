@@ -78,6 +78,9 @@ utils subdir for alternative approach (OOP prefered instead though)
 - Serialize/Deserialize RSA encrypted fernet keys
 - Base64 encoding option for all encrypting and serialization
 
+### New
+- hashing and salting!
+
 
 
 

@@ -4,9 +4,9 @@ from setuptools import setup, find_packages
 HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
-VERSION = "1.2.0"
-DESCRIPTION="VerseGroups encryption manager class (RSA and Fernet wrapped AES sessions through RSA) for secure transmission of data. Also includes utilities such as hashing and base64 encoding."
-KEYWORDS=['RSA', 'FERNET', 'vgem', 'Encryption Manager', 'Encryption', 'Verse Group']
+VERSION = "1.3.0"
+DESCRIPTION="VerseGroups encryption manager class (RSA and Fernet wrapped AES sessions through RSA) for secure transmission of data. Also includes utilities such as hashing, salting and base64 encoding."
+KEYWORDS=['RSA', 'FERNET', 'hash', 'vgem', 'Encryption Manager', 'Encryption', 'Verse Group']
 
 setup(
     name="vgem",

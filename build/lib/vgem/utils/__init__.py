@@ -13,7 +13,7 @@ from encrypt import encrypt_public
 from serialize import serialize_private_key, serialize_public_key
 from deserialize import deserialize_private_key, deserialize_public_key
 from generate import generate_private, generate_public
-from hash import hash_, check_hash
+from hash import hash_, check_hash_
 
 # importing from fernet
 from fernet import *

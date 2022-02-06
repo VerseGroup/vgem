@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: vgem
-Version: 1.2.0
-Summary: VerseGroups encryption manager class (RSA and Fernet wrapped AES sessions through RSA) for secure transmission of data. Also includes utilities such as hashing and base64 encoding.
+Version: 1.3.0
+Summary: VerseGroups encryption manager class (RSA and Fernet wrapped AES sessions through RSA) for secure transmission of data. Also includes utilities such as hashing, salting and base64 encoding.
 Home-page: https://github.com/VerseGroup/vgem-python
 Author: VERSEGROUPLLC
 Author-email: officialversegroupllc@gmail.com
 License: MIT
-Keywords: RSA,FERNET,vgem,Encryption Manager,Encryption,Verse Group
+Keywords: RSA,FERNET,hash,vgem,Encryption Manager,Encryption,Verse Group
 Platform: UNKNOWN
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3
@@ -102,6 +102,9 @@ utils subdir for alternative approach (OOP prefered instead though)
 - Encrypt/Decrypt using fernet session
 - Serialize/Deserialize RSA encrypted fernet keys
 - Base64 encoding option for all encrypting and serialization
+
+### New
+- hashing and salting!
 
 
 
