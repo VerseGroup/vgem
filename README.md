@@ -1,20 +1,5 @@
 # vgem (python edition)
-VerseGroup's native encryption manager adapted for python applications.
-
-## Function
-EM is an efficient manager to allow for easy encryption/decryption/secure session management, without having to code for specific algorithims, as long as the client/reciever uses this same package (or alternative language equivalent). 
-
-EM prefers the OOP approach, in order to reduce the amount of key passing and similar tedious tasks. Simply initiate an EM instance empty to generate a new set of keys, or pass in existing keys (serialized or object formatted) to use. Supports mainly RSA assymetric encryption, but also hybrid encryption with RSA generated fernet wrapped AES sessions. 
-
-EM also provides utilities such as hashing and base64 encoding. 
-
-## RSA and Fernet-AES explained
-
-RSA is assymetric encryption, which uses private and public keys to send encrypted messages. Private keys can decrypt messages and public keys can only encrypt messages. A server wishing to recieve encrypted messages would distribute its public keys freely, and then decrypt incoming messages with its' private key. For two-way encryption, two servers would each send eachother their public keys, and decrypt messages with their private keys. 
-
-Symmetric keys is less secure as it uses one key that can both encrypt and decrypt. RSA is efficient and more secure than fernet, but can sometime be slow and tedious. So, hybrid encryption is an option. Both servers use their RSA keys to send eachother a symmetric key to use (fernet key) and they then communicate with that fernetkey that only they know (this uses RSA to securly send over the symmteric key).
-
-vgem's EM class supports both use cases.
+A wrapper for python's cryptography package using OOP principals. 
 
 ## How to Use
 
