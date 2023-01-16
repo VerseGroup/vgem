@@ -7,5 +7,5 @@ pluggy==1.0.0
 py==1.11.0
 pycparser==2.21
 pyparsing==3.0.8
-pytest==7.1.2
+pytest==7.2.1
 toml==0.10.2
